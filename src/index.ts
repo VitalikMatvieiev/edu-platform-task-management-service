@@ -6,7 +6,7 @@ const app = express();
 
 require("dotenv").config();
 
-const mongoString = process.env.DATABASE_URL;
+const mongoString = process.env.MONGODB_URI;
 
 // middleware
 app.use(express.json());
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 // routes
 app.use("/api/tasks", taskRoute);
 
-app.get("/", (req: any, res: any) => {
+app.get("/", (req, res) => {
   res.send("Hello from Node API Server Updated");
 });
 
@@ -30,3 +30,7 @@ mongoose
   .catch(() => {
     console.log("Connection failed!");
   });
+
+module.exports = {
+  app,
+};

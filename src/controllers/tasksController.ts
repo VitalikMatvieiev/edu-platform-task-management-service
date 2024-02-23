@@ -1,6 +1,6 @@
 const Task = require("../models/tasksModel");
 
-const getTasks = async (req: any, res: any) => {
+const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({});
     res.status(200).json(tasks);
@@ -9,7 +9,7 @@ const getTasks = async (req: any, res: any) => {
   }
 };
 
-const getTask = async (req: any, res: any) => {
+const getTask = async (req, res) => {
   try {
     const { id } = req.params;
     const task = await Task.findById(id);
@@ -19,7 +19,7 @@ const getTask = async (req: any, res: any) => {
   }
 };
 
-const createTask = async (req: any, res: any) => {
+const createTask = async (req, res) => {
   try {
     const task = await Task.create(req.body);
     res.status(200).json(task);
@@ -28,7 +28,7 @@ const createTask = async (req: any, res: any) => {
   }
 };
 
-const updateTask = async (req: any, res: any) => {
+const updateTask = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -45,7 +45,7 @@ const updateTask = async (req: any, res: any) => {
   }
 };
 
-const deleteTask = async (req: any, res: any) => {
+const deleteTask = async (req, res) => {
   try {
     const { id } = req.params;
 
